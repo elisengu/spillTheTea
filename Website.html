@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+		<script>
+var looper;
+var degrees = 0;
+function rotateAnimation(el,speed){
+	var elem = document.getElementById(el);
+	if(navigator.userAgent.match("Chrome")){
+		elem.style.WebkitTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Firefox")){
+		elem.style.MozTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("MSIE")){
+		elem.style.msTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Opera")){
+		elem.style.OTransform = "rotate("+degrees+"deg)";
+	} else {
+		elem.style.transform = "rotate("+degrees+"deg)";
+	}
+	looper = setTimeout('rotateAnimation(\''+el+'\','+speed+')',speed);
+	degrees++;
+	if(degrees > 359){
+		degrees = 1;
+	}
+
+	// document.getElementById("status").innerHTML = "rotate("+degrees+"deg)";
+}
+</script>
+	</head>
+	<style>
+		body {
+			background-color: cornsilk;
+		}
+		h1{
+			text-align: center;
+		}
+		h2 {
+			color: saddlebrown;
+			text-align: center;
+			transition: 2s;
+			font-family: 'Sofia';
+			font-size: 100px;
+		}
+		h2:hover{
+		color: palegreen;
+		}
+		h3{
+			color: peru;
+			text-align: center;
+			font-family: 'Sofia';
+			font-size: 75px;
+		}
+		h4{
+			color: darkseagreen;
+			text-align: center;
+			font-family: 'Sofia';
+			font-size: 50px;
+		}
+	</style>
+	<body>
+		<h1>
+			<img id="img1" src="img/kawaiistar.png" alt="kawaiistar" width=20% height=20%>
+			<script>rotateAnimation("img1",10);</script>
+			<img src="img/image.png" width=50% height=50%> 
+			<img id="img2" src="img/kawaiistar.png" alt="kawaiistar" width=20% height=20%>
+			<script>rotateAnimation("img2",10);</script>
+			<h2 style="width:10px;" id="status"></h2>
+		</h1>
+		<h2>
+		Spill the Tea!
+		</h2>
+		<h3>Ready for some real reviews? See if the review matches up to the hype.</h3>
+		<h4>Using sentiment analysis, we can gauge whether the rating matches the content of the review.</h4>
+		<h5><img src="img/teaaaaa.png" width=100% height=100%> </h5>
+		<h6><img src="img/teaaa.png" width=100% height=100%> </h6>
+	</body>
+</html>
